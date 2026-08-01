@@ -2,17 +2,6 @@ package graph;
 
 import java.util.*;
 
-/**
- * Core Graph data structure implemented using an adjacency list.
- * Owned by: Member A (Graph & Core Routing Engine)
- *
- * Design choice: Adjacency list (HashMap of Lists) was chosen over an
- * adjacency matrix because campus graphs are sparse (each building only
- * connects to a few nearby paths, not every other building). This gives:
- *   - O(1) average node lookup
- *   - O(V + E) space instead of O(V^2)
- *   - Efficient edge iteration for Dijkstra's algorithm
- */
 public class Graph {
     private final Map<String, Node> nodes = new HashMap<>();
     private final Map<String, List<Edge>> adjacency = new HashMap<>();
@@ -42,19 +31,10 @@ public class Graph {
         return adjacency.getOrDefault(nodeId, Collections.emptyList());
     }
 
-    public Node getNode(String nodeId) {
-        return nodes.get(nodeId);
-    }
+    public Node getNode(String nodeId) { return nodes.get(nodeId); }
+    public Map<String, Node> getAllNodes() { return nodes; }
+    public boolean containsNode(String nodeId) { return nodes.containsKey(nodeId); }
 
-    public Map<String, Node> getAllNodes() {
-        return nodes;
-    }
-
-    public boolean containsNode(String nodeId) {
-        return nodes.containsKey(nodeId);
-    }
-
-    /** Novel feature support: mark a path as blocked/unblocked (construction, event, etc.) */
     public void setBlocked(String fromId, String toId, boolean blocked) {
         for (Edge e : adjacency.getOrDefault(fromId, Collections.emptyList())) {
             if (e.getToNode().equals(toId)) e.setBlocked(blocked);
@@ -64,9 +44,7 @@ public class Graph {
         }
     }
 
-    public Set<String> allNodeIds() {
-        return nodes.keySet();
-    }
+    public Set<String> allNodeIds() { return nodes.keySet(); }
 
     @Override
     public String toString() {

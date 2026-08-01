@@ -1,13 +1,9 @@
 package graph;
 
-/**
- * Represents a single location (building, junction, or gate) on the campus.
- * Owned by: Member A (Graph & Core Routing Engine)
- */
 public class Node {
     private final String id;
     private final String name;
-    private final boolean hasRamp; // false if only reachable via stairs
+    private final boolean hasRamp;
 
     public Node(String id, String name, boolean hasRamp) {
         this.id = id;
@@ -15,22 +11,12 @@ public class Node {
         this.hasRamp = hasRamp;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public boolean hasRamp() {
-        return hasRamp;
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public boolean hasRamp() { return hasRamp; }
 
     @Override
-    public String toString() {
-        return "Node(" + id + ", " + name + ")";
-    }
+    public String toString() { return "Node(" + id + ", " + name + ")"; }
 
     @Override
     public boolean equals(Object obj) {
@@ -39,7 +25,5 @@ public class Node {
     }
 
     @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
+    public int hashCode() { return id.hashCode(); }
 }

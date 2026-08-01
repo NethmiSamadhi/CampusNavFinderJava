@@ -7,17 +7,6 @@ import core.RouteResult;
 import java.util.*;
 import java.util.function.ToDoubleFunction;
 
-/**
- * Classic Dijkstra shortest-path algorithm using a min-heap (PriorityQueue).
- * Owned by: Member A (Graph & Core Routing Engine)
- *
- * Time Complexity: O((V + E) log V) using a binary heap
- * Space Complexity: O(V)
- *
- * A weightFn callback can be supplied so other modules (like
- * CongestionWeight) can dynamically change how "distance" is calculated
- * without modifying this core algorithm.
- */
 public class Dijkstra {
 
     private record QueueEntry(String nodeId, double distance) {}

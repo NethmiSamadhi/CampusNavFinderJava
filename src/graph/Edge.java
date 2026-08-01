@@ -1,9 +1,5 @@
 package graph;
 
-/**
- * Represents a walkable path between two locations.
- * Owned by: Member A (Graph & Core Routing Engine)
- */
 public class Edge {
     private final String toNode;
     private final double baseWeight;
@@ -17,25 +13,11 @@ public class Edge {
         this.blocked = false;
     }
 
-    public String getToNode() {
-        return toNode;
-    }
-
-    public double getBaseWeight() {
-        return baseWeight;
-    }
-
-    public boolean hasStairs() {
-        return hasStairs;
-    }
-
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-    public void setBlocked(boolean blocked) {
-        this.blocked = blocked;
-    }
+    public String getToNode() { return toNode; }
+    public double getBaseWeight() { return baseWeight; }
+    public boolean hasStairs() { return hasStairs; }
+    public boolean isBlocked() { return blocked; }
+    public void setBlocked(boolean blocked) { this.blocked = blocked; }
 
     @Override
     public String toString() {
